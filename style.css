@@ -1,0 +1,356 @@
+:root {
+    --primary-text-color: #313A44; /* Weathered Slate */
+    --background-color: #F5F3ED; /* Parchment */
+    --accent-color: #E0A800; /* Muted Orange/Gold for CTAs */
+    --deep-blue: #1A237E; /* Example Deep Blue/Navy */
+    --secondary-background-color: #E8E4DF; /* Slightly darker parchment for zebra striping */
+    --logo-color-primary: #313A44; /* Assuming logo has dark elements */
+    --logo-color-secondary: #E0A800; /* Assuming logo has accent elements */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--primary-text-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 50px; /* Adjust logo size as needed */
+    margin-right: 10px;
+}
+
+.logo-container .foundation-name {
+    color: var(--background-color);
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--background-color);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: 60vh; /* Full-width header, adjust height as needed */
+    background: url('20241104_100934.jpg') no-repeat center center/cover; /* Using the provided logo image as hero background for now, will replace with a proper hero image later */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white; /* Text color over hero image */
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: capitalize; /* Sentence case */
+    color: white; /* Ensure hero text is white */
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: white; /* Ensure hero text is white */
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #c09000; /* Slightly darker accent on hover */
+}
+
+/* General Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--primary-text-color);
+    text-transform: capitalize; /* Sentence case for headers */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Section Styling (Zebra Striping) */
+.section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section:nth-of-type(even) {
+    background-color: var(--secondary-background-color);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+/* Card-Based Design */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--deep-blue);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Data Grid */
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.data-item {
+    background-color: transparent;
+    color: var(--primary-text-color);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.data-item .number {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.data-item .label {
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 30px auto;
+    display: block;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Carousel Styles */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #000; /* Added for visual contrast when object-fit: contain leaves empty space */
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+    flex-shrink: 0;
+    height: 450px; /* Fixed height for consistency */
+    object-fit: contain; /* Changed from cover to contain */
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+/* Video Grid Styles */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.video-item {
+    text-align: center;
+}
+
+.video-item h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--primary-text-color);
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    border-radius: 8px;
+}
+
+
+/* Mobile-First Adaptability */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .section {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .carousel-slide img {
+        height: 250px; /* Adjust for smaller screens */
+    }
+
+    .video-item iframe {
+        height: 180px;
+    }
+}
+
+footer {
+    background-color: var(--primary-text-color);
+    color: var(--background-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
