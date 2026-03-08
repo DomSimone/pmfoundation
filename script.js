@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const carouselImages = carouselContainer.querySelectorAll('.carousel-slide img');
         const prevBtn = carouselContainer.querySelector('.carousel-prev');
         const nextBtn = carouselContainer.querySelector('.carousel-next');
+        const fullViewBtn = carouselContainer.querySelector('.carousel-full-view');
+        const fullViewModal = document.getElementById('full-view-modal');
+        const fullViewImage = document.getElementById('full-view-image');
+        const closeBtn = fullViewModal.querySelector('.close-btn');
 
         let counter = 0;
         let size = carouselContainer.clientWidth;
@@ -41,6 +45,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 counter = carouselImages.length - 1;
             }
             showImage(counter);
+        });
+
+        fullViewBtn.addEventListener('click', () => {
+            if (carouselImages.length > 0) {
+                fullViewImage.src = carouselImages[counter].src;
+                fullViewImage.alt = carouselImages[counter].alt;
+                fullViewModal.style.display = 'block';
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            fullViewModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target == fullViewModal) {
+                fullViewModal.style.display = 'none';
+            }
         });
 
         setInterval(() => {
